@@ -27,4 +27,16 @@ def function(N):
 	return function(N-1) + function(N-2) + function(N-3)
 ```
 
-
+## Dynamic Programming Solution.
+To solve the proble dynamically we have to consider base cases as we have discussed in recursive solution, and instead of making trees with recursive calls we can simply use 
+an array to solve it. Have a look at the following sudo code for more information.
+```
+def function(N):
+	ways = [0] * (N+1)
+	ways[1] = 1 # Base case 1
+	ways[2] = 2 # Base case 2
+	ways[3] = 4 # Base case 3
+	for i in range(4,N+1):
+		ways[i] = ways[i-1] + ways[i-2] + ways[i-3]
+	return ways[N]
+```
